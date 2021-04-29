@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder<List<Sneaker>>(
-        future: SneakersLoader().loadSneakers(),
+        future: SneakersLoader().loadSneakers(context),
         builder: (context, snapshot) {
           if (snapshot.hasData) return _SneakersList(sneakers: snapshot.data!);
           return const Center(
