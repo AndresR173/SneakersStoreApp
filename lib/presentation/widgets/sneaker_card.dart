@@ -12,7 +12,11 @@ class SneakerCard extends StatefulWidget {
   _SneakerCardState createState() => _SneakerCardState();
 }
 
-class _SneakerCardState extends State<SneakerCard> {
+class _SneakerCardState extends State<SneakerCard>
+    with SingleTickerProviderStateMixin {
+  bool detailsHidden = false;
+  final int _angle = math.Random().nextInt(11);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,81 +33,51 @@ class _SneakerCardState extends State<SneakerCard> {
             child: Column(
               children: [
                 Expanded(
-                  flex: 4,
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(40),
-                          child: Transform.rotate(
-                            angle: -math.pi / _getRandomAngle(),
-                            child: SizedBox(
-                              height: double.infinity,
-                              child: AspectRatio(
-                                aspectRatio: 1,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.05),
-                                      borderRadius: BorderRadius.circular(8)),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        detailsHidden = !detailsHidden;
+                      });
+                    },
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(40),
+                            child: Transform.rotate(
+                              angle: -math.pi / _angle,
+                              child: SizedBox(
+                                height: double.infinity,
+                                child: AspectRatio(
+                                  aspectRatio: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.black.withOpacity(0.05),
+                                        borderRadius: BorderRadius.circular(8)),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Center(
-                        child: AspectRatio(
-                          aspectRatio: 1,
-                          child: Image.asset(
-                              'assets/images/${widget.sneaker.gallery.first}'),
-                        ),
-                      )
-                    ],
+                        Center(
+                          child: AspectRatio(
+                            aspectRatio: 1,
+                            child: Image.asset(
+                                'assets/images/${widget.sneaker.gallery.first}'),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.sneaker.category,
-                              style: Theme.of(context).textTheme.bodyText1,
-                            ),
-                            Text(
-                              widget.sneaker.name,
-                              style: Theme.of(context).textTheme.subtitle1,
-                            ),
-                            Text(
-                              '\$${widget.sneaker.price}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    color:
-                                        darken(widget.sneaker.background, 40),
-                                  ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white24,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const Icon(
-                          Icons.shopping_cart_outlined,
-                          color: Color(0xFF5F6164),
-                        ),
-                      )
-                    ],
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.fastOutSlowIn,
+                  vsync: this,
+                  child: _SneakerDetails(
+                    sneaker: widget.sneaker,
+                    isHidden: detailsHidden,
                   ),
                 )
               ],
@@ -113,9 +87,63 @@ class _SneakerCardState extends State<SneakerCard> {
       ),
     );
   }
+}
 
-  int _getRandomAngle() {
-    return math.Random().nextInt(11);
+class _SneakerDetails extends StatelessWidget {
+  const _SneakerDetails({
+    Key? key,
+    required this.sneaker,
+    required this.isHidden,
+  }) : super(key: key);
+
+  final Sneaker sneaker;
+  final bool isHidden;
+
+  @override
+  Widget build(BuildContext context) {
+    return isHidden
+        ? const SizedBox.shrink()
+        : Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      sneaker.category,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    Text(
+                      sneaker.name,
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                    Text(
+                      '\$${sneaker.price}',
+                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: darken(
+                              sneaker.background,
+                              40,
+                            ),
+                          ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white24,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Icon(
+                  Icons.shopping_cart_outlined,
+                  color: Color(0xFF5F6164),
+                ),
+              )
+            ],
+          );
   }
 }
 
