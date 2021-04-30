@@ -12,6 +12,7 @@ abstract class Sneaker with _$Sneaker {
     required String category,
     required String description,
     required double price,
+    required List<String> gallery,
     @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
         required Color background,
   }) = _Sneaker;

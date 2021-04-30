@@ -12,6 +12,8 @@ _$_Sneaker _$_$_SneakerFromJson(Map<String, dynamic> json) {
     category: json['category'] as String,
     description: json['description'] as String,
     price: (json['price'] as num).toDouble(),
+    gallery:
+        (json['gallery'] as List<dynamic>).map((e) => e as String).toList(),
     background: _colorFromJson(json['background'] as String),
   );
 }
@@ -22,5 +24,6 @@ Map<String, dynamic> _$_$_SneakerToJson(_$_Sneaker instance) =>
       'category': instance.category,
       'description': instance.description,
       'price': instance.price,
+      'gallery': instance.gallery,
       'background': _colorToJson(instance.background),
     };

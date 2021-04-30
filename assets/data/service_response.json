@@ -4,9 +4,9 @@
         "category": "Men shoes",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et leo quis enim vestibulum consectetur non a dolor. Phasellus vitae ultricies augue. Phasellus velit sem, tincidunt id magna et, congue cursus elit. Sed elementum venenatis ullamcorper. Duis accumsan semper neque, at malesuada massa fermentum quis. Quisque aliquam nec arcu at cursus. Aliquam lobortis gravida ipsum, eu bibendum orci porta in. Curabitur tempor nulla nec ex ultricies, id consequat velit consectetur. Vivamus ac nisi et nunc scelerisque imperdiet.\nCurabitur vel ante eu velit semper posuere. Nulla libero velit, tincidunt non faucibus nec, rhoncus at nisi. Pellentesque eget pulvinar nisi, a mattis felis. Cras dictum sollicitudin quam nec ullamcorper. Phasellus vitae placerat quam. Sed urna est, suscipit in arcu sed, hendrerit egestas neque. Nullam sit amet lectus leo. Sed rhoncus tellus turpis, eget ornare tellus viverra ut. Nullam fringilla, elit vitae accumsan mollis, ante lacus tempus sapien, eu vehicula urna metus vitae justo.",
         "gallery": [
-            "sneaker2/image1",
-            "sneaker2/image2",
-            "sneaker2/image3"
+            "sneaker2/image1.png",
+            "sneaker2/image2.png",
+            "sneaker2/image3.png"
         ],
         "sizes": [
             36,
@@ -24,9 +24,9 @@
         "category": "Men Basketball shoes",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et leo quis enim vestibulum consectetur non a dolor. Phasellus vitae ultricies augue. Phasellus velit sem, tincidunt id magna et, congue cursus elit. Sed elementum venenatis ullamcorper. Duis accumsan semper neque, at malesuada massa fermentum quis. Quisque aliquam nec arcu at cursus. Aliquam lobortis gravida ipsum, eu bibendum orci porta in. Curabitur tempor nulla nec ex ultricies, id consequat velit consectetur. Vivamus ac nisi et nunc scelerisque imperdiet.\nCurabitur vel ante eu velit semper posuere. Nulla libero velit, tincidunt non faucibus nec, rhoncus at nisi. Pellentesque eget pulvinar nisi, a mattis felis. Cras dictum sollicitudin quam nec ullamcorper. Phasellus vitae placerat quam. Sed urna est, suscipit in arcu sed, hendrerit egestas neque. Nullam sit amet lectus leo. Sed rhoncus tellus turpis, eget ornare tellus viverra ut. Nullam fringilla, elit vitae accumsan mollis, ante lacus tempus sapien, eu vehicula urna metus vitae justo.",
         "gallery": [
-            "sneaker1/image1",
-            "sneaker1/image2",
-            "sneaker1/image3"
+            "sneaker1/image1.png",
+            "sneaker1/image2.png",
+            "sneaker1/image3.png"
         ],
         "sizes": [
             36,

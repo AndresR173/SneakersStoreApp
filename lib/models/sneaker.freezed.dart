@@ -25,6 +25,7 @@ class _$SneakerTearOff {
       required String category,
       required String description,
       required double price,
+      required List<String> gallery,
       @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
           required Color background}) {
     return _Sneaker(
@@ -32,6 +33,7 @@ class _$SneakerTearOff {
       category: category,
       description: description,
       price: price,
+      gallery: gallery,
       background: background,
     );
   }
@@ -50,6 +52,7 @@ mixin _$Sneaker {
   String get category => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
+  List<String> get gallery => throw _privateConstructorUsedError;
   @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
   Color get background => throw _privateConstructorUsedError;
 
@@ -67,6 +70,7 @@ abstract class $SneakerCopyWith<$Res> {
       String category,
       String description,
       double price,
+      List<String> gallery,
       @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
           Color background});
 }
@@ -85,6 +89,7 @@ class _$SneakerCopyWithImpl<$Res> implements $SneakerCopyWith<$Res> {
     Object? category = freezed,
     Object? description = freezed,
     Object? price = freezed,
+    Object? gallery = freezed,
     Object? background = freezed,
   }) {
     return _then(_value.copyWith(
@@ -104,6 +109,10 @@ class _$SneakerCopyWithImpl<$Res> implements $SneakerCopyWith<$Res> {
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      gallery: gallery == freezed
+          ? _value.gallery
+          : gallery // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       background: background == freezed
           ? _value.background
           : background // ignore: cast_nullable_to_non_nullable
@@ -122,6 +131,7 @@ abstract class _$SneakerCopyWith<$Res> implements $SneakerCopyWith<$Res> {
       String category,
       String description,
       double price,
+      List<String> gallery,
       @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
           Color background});
 }
@@ -141,6 +151,7 @@ class __$SneakerCopyWithImpl<$Res> extends _$SneakerCopyWithImpl<$Res>
     Object? category = freezed,
     Object? description = freezed,
     Object? price = freezed,
+    Object? gallery = freezed,
     Object? background = freezed,
   }) {
     return _then(_Sneaker(
@@ -160,6 +171,10 @@ class __$SneakerCopyWithImpl<$Res> extends _$SneakerCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      gallery: gallery == freezed
+          ? _value.gallery
+          : gallery // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       background: background == freezed
           ? _value.background
           : background // ignore: cast_nullable_to_non_nullable
@@ -177,6 +192,7 @@ class _$_Sneaker implements _Sneaker {
       required this.category,
       required this.description,
       required this.price,
+      required this.gallery,
       @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
           required this.background});
 
@@ -192,12 +208,14 @@ class _$_Sneaker implements _Sneaker {
   @override
   final double price;
   @override
+  final List<String> gallery;
+  @override
   @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
   final Color background;
 
   @override
   String toString() {
-    return 'Sneaker(name: $name, category: $category, description: $description, price: $price, background: $background)';
+    return 'Sneaker(name: $name, category: $category, description: $description, price: $price, gallery: $gallery, background: $background)';
   }
 
   @override
@@ -214,6 +232,9 @@ class _$_Sneaker implements _Sneaker {
                     .equals(other.description, description)) &&
             (identical(other.price, price) ||
                 const DeepCollectionEquality().equals(other.price, price)) &&
+            (identical(other.gallery, gallery) ||
+                const DeepCollectionEquality()
+                    .equals(other.gallery, gallery)) &&
             (identical(other.background, background) ||
                 const DeepCollectionEquality()
                     .equals(other.background, background)));
@@ -226,6 +247,7 @@ class _$_Sneaker implements _Sneaker {
       const DeepCollectionEquality().hash(category) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(price) ^
+      const DeepCollectionEquality().hash(gallery) ^
       const DeepCollectionEquality().hash(background);
 
   @JsonKey(ignore: true)
@@ -245,6 +267,7 @@ abstract class _Sneaker implements Sneaker {
       required String category,
       required String description,
       required double price,
+      required List<String> gallery,
       @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
           required Color background}) = _$_Sneaker;
 
@@ -258,6 +281,8 @@ abstract class _Sneaker implements Sneaker {
   String get description => throw _privateConstructorUsedError;
   @override
   double get price => throw _privateConstructorUsedError;
+  @override
+  List<String> get gallery => throw _privateConstructorUsedError;
   @override
   @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
   Color get background => throw _privateConstructorUsedError;

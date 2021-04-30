@@ -24,6 +24,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/sneaker1/
+    - assets/images/sneaker2/
     - assets/data/
   fonts:
     - family: Poppins
