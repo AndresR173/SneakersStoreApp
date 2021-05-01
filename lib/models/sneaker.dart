@@ -8,6 +8,7 @@ part 'sneaker.g.dart';
 abstract class Sneaker with _$Sneaker {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Sneaker({
+    required int id,
     required String name,
     required String category,
     required String description,

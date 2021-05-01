@@ -1,8 +1,8 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../../models/sneaker.dart';
+import '../pages/sneakers_details.dart';
+import 'sneaker_container.dart';
 
 class SneakerCard extends StatefulWidget {
   final Sneaker sneaker;
@@ -15,7 +15,6 @@ class SneakerCard extends StatefulWidget {
 class _SneakerCardState extends State<SneakerCard>
     with SingleTickerProviderStateMixin {
   bool detailsHidden = false;
-  final int _angle = math.Random().nextInt(11);
 
   @override
   Widget build(BuildContext context) {
@@ -37,38 +36,22 @@ class _SneakerCardState extends State<SneakerCard>
                     onTap: () {
                       setState(() {
                         detailsHidden = !detailsHidden;
+
+                        Future.delayed(const Duration(milliseconds: 500), () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  SneakersDetails(sneaker: widget.sneaker),
+                            ),
+                          );
+                        });
                       });
                     },
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(40),
-                            child: Transform.rotate(
-                              angle: -math.pi / _angle,
-                              child: SizedBox(
-                                height: double.infinity,
-                                child: AspectRatio(
-                                  aspectRatio: 1,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        color: Colors.black.withOpacity(0.05),
-                                        borderRadius: BorderRadius.circular(8)),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: AspectRatio(
-                            aspectRatio: 1,
-                            child: Image.asset(
-                                'assets/images/${widget.sneaker.gallery.first}'),
-                          ),
-                        )
-                      ],
-                    ),
+                    child: Hero(
+                        tag: 'sneaker${widget.sneaker.id}',
+                        child: SneakerContainer(
+                            asset: widget.sneaker.gallery.first)),
                   ),
                 ),
                 AnimatedSize(

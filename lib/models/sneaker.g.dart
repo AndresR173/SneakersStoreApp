@@ -8,6 +8,7 @@ part of 'sneaker.dart';
 
 _$_Sneaker _$_$_SneakerFromJson(Map<String, dynamic> json) {
   return _$_Sneaker(
+    id: json['id'] as int,
     name: json['name'] as String,
     category: json['category'] as String,
     description: json['description'] as String,
@@ -20,6 +21,7 @@ _$_Sneaker _$_$_SneakerFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_SneakerToJson(_$_Sneaker instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'category': instance.category,
       'description': instance.description,

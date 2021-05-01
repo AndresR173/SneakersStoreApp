@@ -21,7 +21,8 @@ class _$SneakerTearOff {
   const _$SneakerTearOff();
 
   _Sneaker call(
-      {required String name,
+      {required int id,
+      required String name,
       required String category,
       required String description,
       required double price,
@@ -29,6 +30,7 @@ class _$SneakerTearOff {
       @JsonKey(fromJson: _colorFromJson, toJson: _colorToJson)
           required Color background}) {
     return _Sneaker(
+      id: id,
       name: name,
       category: category,
       description: description,
@@ -48,6 +50,7 @@ const $Sneaker = _$SneakerTearOff();
 
 /// @nodoc
 mixin _$Sneaker {
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -66,7 +69,8 @@ abstract class $SneakerCopyWith<$Res> {
   factory $SneakerCopyWith(Sneaker value, $Res Function(Sneaker) then) =
       _$SneakerCopyWithImpl<$Res>;
   $Res call(
-      {String name,
+      {int id,
+      String name,
       String category,
       String description,
       double price,
@@ -85,6 +89,7 @@ class _$SneakerCopyWithImpl<$Res> implements $SneakerCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? category = freezed,
     Object? description = freezed,
@@ -93,6 +98,10 @@ class _$SneakerCopyWithImpl<$Res> implements $SneakerCopyWith<$Res> {
     Object? background = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -127,7 +136,8 @@ abstract class _$SneakerCopyWith<$Res> implements $SneakerCopyWith<$Res> {
       __$SneakerCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
+      {int id,
+      String name,
       String category,
       String description,
       double price,
@@ -147,6 +157,7 @@ class __$SneakerCopyWithImpl<$Res> extends _$SneakerCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? category = freezed,
     Object? description = freezed,
@@ -155,6 +166,10 @@ class __$SneakerCopyWithImpl<$Res> extends _$SneakerCopyWithImpl<$Res>
     Object? background = freezed,
   }) {
     return _then(_Sneaker(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -188,7 +203,8 @@ class __$SneakerCopyWithImpl<$Res> extends _$SneakerCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_Sneaker implements _Sneaker {
   const _$_Sneaker(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.category,
       required this.description,
       required this.price,
@@ -199,6 +215,8 @@ class _$_Sneaker implements _Sneaker {
   factory _$_Sneaker.fromJson(Map<String, dynamic> json) =>
       _$_$_SneakerFromJson(json);
 
+  @override
+  final int id;
   @override
   final String name;
   @override
@@ -215,13 +233,15 @@ class _$_Sneaker implements _Sneaker {
 
   @override
   String toString() {
-    return 'Sneaker(name: $name, category: $category, description: $description, price: $price, gallery: $gallery, background: $background)';
+    return 'Sneaker(id: $id, name: $name, category: $category, description: $description, price: $price, gallery: $gallery, background: $background)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Sneaker &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.category, category) ||
@@ -243,6 +263,7 @@ class _$_Sneaker implements _Sneaker {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(category) ^
       const DeepCollectionEquality().hash(description) ^
@@ -263,7 +284,8 @@ class _$_Sneaker implements _Sneaker {
 
 abstract class _Sneaker implements Sneaker {
   const factory _Sneaker(
-      {required String name,
+      {required int id,
+      required String name,
       required String category,
       required String description,
       required double price,
@@ -273,6 +295,8 @@ abstract class _Sneaker implements Sneaker {
 
   factory _Sneaker.fromJson(Map<String, dynamic> json) = _$_Sneaker.fromJson;
 
+  @override
+  int get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
